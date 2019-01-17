@@ -10,11 +10,13 @@
   <ion-list>
     <ion-item *ngFor="let image of picArray">
       <ion-thumbnail item-start>
-        <img [src]="image.thumbnail"
+        <img *ngIf="image.media_type =='image'" [src]="'http://media.mw.metropolia.fi/wbma/uploads/'+image.filename"
         (click)="catClick()">
+        <video *ngIf="image.media_type == 'video'" [src]="'http://media.mw.metropolia.fi/wbma/uploads/'+image.filename"
+         controls></video>
       </ion-thumbnail>
       <h2>{{ image.title}}</h2>
-      <p>{{ image.details }}</p>
+      <p>{{ image.description }}</p>
       <button ion-button clear item-end>View</button>
     </ion-item>
   </ion-list>

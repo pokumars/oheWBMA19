@@ -15,9 +15,9 @@ export class HomePage {
 
   // add this to xyz
   picArray: Pic[] = [];
-  mediaPath: string = 'assets/test.json';
+  mediaPath = 'http://media.mw.metropolia.fi/wbma/media/';
 
-  ngOnInit(){
+  ngOnInit() {
     this.getImages();
   }
 
@@ -26,11 +26,11 @@ export class HomePage {
 
   getImages() {
     this.http.get<Pic[]>(this.mediaPath).subscribe(
-      (response: Pic[])=>{
-        this.picArray =response;
+      (response: Pic[]) => {
+        this.picArray = response;
         console.log(response);
       }
-    )
+    );
 
   }
 }
