@@ -83,6 +83,7 @@
     <plugin name="cordova-plugin-ionic-webview" spec="^2.0.0" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
     <allow-navigation href="http://10.90.72.36:8101" sessionid="a0675bc3" />
+    <plugin name="com-sarriaroman-photoviewer" spec="1.1.18" />
+    <allow-navigation href="http://10.112.205.200:8101" sessionid="243bb1ff" />
     <engine name="android" spec="7.1.4" />
-    <plugin name="com-sarriaroman-photoviewer" spec="1.2.0" />
 </widget>
