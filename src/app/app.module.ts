@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { MediaProvider } from '../providers/media/media';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,8 @@ import { HomePage } from '../pages/home/home';
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     PhotoViewer,
+    MediaProvider,
+    MediaProvider
   ],
 })
 export class AppModule {
