@@ -9,11 +9,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { MediaProvider } from '../providers/media/media';
+import { MenuPage } from '../pages/menu/menu';
+import { LoginRegisterPage } from '../pages/login-register/login-register';
+import { LogoutPage } from '../pages/logout/logout';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
+    MenuPage,
+    LoginRegisterPage,
+    LogoutPage
   ],
   imports: [
     BrowserModule,
@@ -24,6 +30,9 @@ import { MediaProvider } from '../providers/media/media';
   entryComponents: [
     MyApp,
     HomePage,
+    MenuPage,
+    LoginRegisterPage,
+    LogoutPage
   ],
   providers: [
     StatusBar,
@@ -31,7 +40,6 @@ import { MediaProvider } from '../providers/media/media';
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     PhotoViewer,
     MediaProvider,
-    MediaProvider
   ],
 })
 export class AppModule {

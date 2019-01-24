@@ -28,14 +28,12 @@ export class HomePage {
   getAllFiles() {
     this.mediaProvider.getAllmedia().subscribe((data: Pic[]) => {
       console.log('data', data);
-      this.picArray = data;
-
       data.forEach((media: Pic) => {
         this.mediaProvider.getSingleMedia(media.file_id).subscribe((file: Pic) => {
           this.picArray.push(file);
         });
       });
-      // this.picArray.forEach(pic =>{console.log(pic.file_id);})
+      console.log(this.picArray);
     });
   }
 
@@ -43,7 +41,6 @@ export class HomePage {
     this.http.get<Pic[]>(this.mediaPath).subscribe(
       (response: Pic[]) => {
         this.picArray = response;
-        console.log(response);
       }
     );
   }
