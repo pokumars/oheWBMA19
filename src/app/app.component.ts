@@ -23,7 +23,5 @@ export class MyApp {
       console.log(err);
     });
   }
-
-
 }
 
