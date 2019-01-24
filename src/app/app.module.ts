@@ -19,7 +19,7 @@ import { LogoutPage } from '../pages/logout/logout';
     HomePage,
     MenuPage,
     LoginRegisterPage,
-    LogoutPage
+    LogoutPage,
   ],
   imports: [
     BrowserModule,
@@ -32,7 +32,7 @@ import { LogoutPage } from '../pages/logout/logout';
     HomePage,
     MenuPage,
     LoginRegisterPage,
-    LogoutPage
+    LogoutPage,
   ],
   providers: [
     StatusBar,
