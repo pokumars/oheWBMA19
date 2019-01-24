@@ -23,7 +23,7 @@ export class HomePage {
 
   }
 
-  constructor(private http: HttpClient, public navCtrl: NavController,private mediaProvider: MediaProvider) { }
+  constructor(private http: HttpClient, public navCtrl: NavController, private mediaProvider: MediaProvider) { }
 
   getAllFiles() {
     this.mediaProvider.getAllmedia().subscribe((data: Pic[]) => {
