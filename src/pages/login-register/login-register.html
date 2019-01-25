@@ -1,0 +1,28 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>login-register</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form #form="ngForm" (ngSubmit)="onLogin(form)">
+    <ion-list>
+
+        <ion-item>
+          <ion-label floating>Username</ion-label>
+          <ion-input ngModel type="text" name="username"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>Password</ion-label>
+          <ion-input ngModel type="password" name="password"></ion-input>
+        </ion-item>
+
+      </ion-list>
+      <button ion-button block round type="submit">Login</button>
+  </form>
+</ion-content>
