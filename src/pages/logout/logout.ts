@@ -1,18 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the LogoutPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @Component({
   selector: 'page-logout',
-  template: `<button ion-button block large style="margin-top : 100%" (click)='onLogout()'> Logout </button>`,
+  template: `<p>click to logout</p>
+  <button ion-button block large style="margin-top : 20%" (click)='onLogout()'> Logout </button>`,
 })
 export class LogoutPage {
+  @Output() loggedOutEvent = new EventEmitter<any>();
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -21,7 +16,8 @@ export class LogoutPage {
     localStorage.removeItem('token');
     localStorage.removeItem('userId');
 
+    this.navCtrl.parent.select(0);
+    this.loggedOutEvent.emit();
   }
-
 
 }

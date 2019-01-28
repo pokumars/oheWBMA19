@@ -22,5 +22,12 @@ export class AuthProvider {
     };
     return this.http.post(this.baseUrl + 'login', body);
   }
+  register(username: string, password: string) {
+    const body = {
+      'username': username,
+      'password': password
+    };
+
+  }
 
 }

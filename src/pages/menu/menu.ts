@@ -11,10 +11,11 @@ import { LogoutPage } from '../logout/logout';
   <ion-tabs>
   <ion-tab [root]="homeTab" tabIcon="home" tabTitle="Home"></ion-tab>
   <ion-tab *ngIf="!isLoggedIn" [root]="loginRegTab" tabTitle="Login/Register"></ion-tab>
-  <ion-tab *ngIf="isLoggedIn" [root]="logoutTab" tabTitle="Logout"></ion-tab>
+  <ion-tab *ngIf="isLoggedIn" [root]="logoutTab" tabTitle="Logout" (loggedOutEvent)="onDidLogout()"></ion-tab>
 </ion-tabs>`,
 })
-export class MenuPage implements OnInit{
+export class MenuPage implements OnInit {
+
 
   homeTab = HomePage;
   loginRegTab = LoginRegisterPage;
@@ -22,12 +23,15 @@ export class MenuPage implements OnInit{
 
   isLoggedIn: boolean;
   ngOnInit() {
-
-    this.isLoggedIn = localStorage.getItem('token') ? true : false;
-
-    console.log('logged in ', this.isLoggedIn);
-
-
+    this.checkLoginState();
   }
 
+  onDidLogout() {
+    this.checkLoginState();
+  }
+
+  checkLoginState() {
+    this.isLoggedIn = localStorage.getItem('token') ? true : false;
+    console.log('logged in ', this.isLoggedIn);
+  }
 }
