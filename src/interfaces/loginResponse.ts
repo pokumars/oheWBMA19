@@ -8,3 +8,9 @@ export interface LoginResponse {
     time_created: string;
   };
 }
+
+export interface RegResponse {
+  message: string;
+  user_id: number;
+}
+

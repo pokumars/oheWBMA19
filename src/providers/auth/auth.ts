@@ -1,12 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-/*
-  Generated class for the AuthProvider provider.
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class AuthProvider {
   baseUrl = 'https://media.mw.metropolia.fi/wbma/';
@@ -22,12 +17,18 @@ export class AuthProvider {
     };
     return this.http.post(this.baseUrl + 'login', body);
   }
-  register(username: string, password: string) {
+
+  register(username: string, password: string, email: string) {
     const body = {
       'username': username,
-      'password': password
+      'password': password,
+      'email': email
     };
+    return this.http.post(this.baseUrl + 'users', body);
+  }
 
+  checkUserExists(username: string) {
+    return this.http.get(this.baseUrl + 'users/username/' + username);
   }
 
 }

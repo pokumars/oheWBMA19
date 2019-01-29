@@ -13,6 +13,10 @@ import { LogoutPage } from '../pages/logout/logout';
 import { LoginRegisterPage } from '../pages/login-register/login-register';
 import { MenuPage } from '../pages/menu/menu';
 import { AuthProvider } from '../providers/auth/auth';
+import { LoginPage } from '../pages/login/login';
+import { SignupPage } from '../pages/signup/signup';
+import { ProfilePage } from '../pages/profile/profile';
+import { TabsPage } from '../pages/tabs/tabs';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,12 @@ import { AuthProvider } from '../providers/auth/auth';
     MenuPage,
     HomePage,
     LogoutPage,
-    LoginRegisterPage
+    LoginPage,
+    SignupPage,
+    ProfilePage,
+    TabsPage
+
+
   ],
   imports: [
     BrowserModule,
@@ -33,7 +42,10 @@ import { AuthProvider } from '../providers/auth/auth';
     MenuPage,
     HomePage,
     LogoutPage,
-    LoginRegisterPage
+    LoginPage,
+    SignupPage,
+    ProfilePage,
+    TabsPage
   ],
   providers: [
     StatusBar,
