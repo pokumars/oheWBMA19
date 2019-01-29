@@ -16,9 +16,9 @@ import { HomePage } from '../home/home';
  `,
 })
 export class MenuPage {
+  homePage = HomePage;
   loginRegTab = LoginRegisterPage;
   logoutTab = LogoutPage;
-  homePage = HomePage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
