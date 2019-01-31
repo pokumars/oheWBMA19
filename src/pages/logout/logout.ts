@@ -13,8 +13,8 @@ export class LogoutPage {
   }
 
   onLogout() {
-    localStorage.removeItem('token');
-    localStorage.removeItem('userId');
+    // localStorage.removeItem('token');
+    // localStorage.removeItem('userId');
 
     this.navCtrl.parent.select(0);
     this.loggedOutEvent.emit();

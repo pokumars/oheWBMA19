@@ -10,13 +10,13 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { MediaProvider } from '../providers/media/media';
 import { LogoutPage } from '../pages/logout/logout';
-import { LoginRegisterPage } from '../pages/login-register/login-register';
 import { MenuPage } from '../pages/menu/menu';
 import { AuthProvider } from '../providers/auth/auth';
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
 import { ProfilePage } from '../pages/profile/profile';
 import { TabsPage } from '../pages/tabs/tabs';
+import { PipesModule } from '../pipes/pipes.module';
 
 @NgModule({
   declarations: [
@@ -27,14 +27,14 @@ import { TabsPage } from '../pages/tabs/tabs';
     LoginPage,
     SignupPage,
     ProfilePage,
-    TabsPage
-
+    TabsPage,
 
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpClientModule,
+    PipesModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [

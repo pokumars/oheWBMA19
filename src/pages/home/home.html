@@ -6,16 +6,19 @@
   </ion-navbar>
 </ion-header>
 
+
 <ion-content padding>
   <ion-list>
-    <ion-item *ngFor="let image of picArray">
+    <ion-item *ngFor="let image of picArray | async">
       <ion-thumbnail item-start>
-        <img *ngIf="image.media_type =='image'" [src]="'http://media.mw.metropolia.fi/wbma/uploads/'+ image.thumbnails.w160">
+          <img  [src]="(image.filename | thumbnail: 'small') ">
+        <!--<img *ngIf="image.media_type =='image'" [src]="'http://media.mw.metropolia.fi/wbma/uploads/'+ image.thumbnails.w160">
         <video *ngIf="image.media_type == 'video'" [src]="'http://media.mw.metropolia.fi/wbma/uploads/'+image.filename"
-         controls></video>
+         controls></video>-->
       </ion-thumbnail>
       <h2>{{ image.title}}</h2>
       <p>{{ image.description }}</p>
+      <p>{{ image.time_added | date:'h:mma, d MMM, y' }}</p>
       <button ion-button clear item-end>View</button>
     </ion-item>
   </ion-list>

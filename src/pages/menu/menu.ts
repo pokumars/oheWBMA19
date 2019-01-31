@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { HomePage } from '../home/home';
-import { LoginRegisterPage } from '../login-register/login-register';
+// import { LoginRegisterPage } from '../login-register/login-register';
 import { LogoutPage } from '../logout/logout';
+import { LoginPage } from '../login/login';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { LogoutPage } from '../logout/logout';
   template: `
   <ion-tabs>
   <ion-tab [root]="homeTab" tabIcon="home" tabTitle="Home"></ion-tab>
-  <ion-tab *ngIf="!isLoggedIn" [root]="loginRegTab" tabTitle="Login/Register"></ion-tab>
+  <ion-tab *ngIf="!isLoggedIn" [root]="loginPage" tabTitle="Login/Register"></ion-tab>
   <ion-tab *ngIf="isLoggedIn" [root]="logoutTab" tabTitle="Logout" (loggedOutEvent)="onDidLogout()"></ion-tab>
 </ion-tabs>`,
 })
@@ -18,7 +19,8 @@ export class MenuPage implements OnInit {
 
 
   homeTab = HomePage;
-  loginRegTab = LoginRegisterPage;
+  // loginRegTab = LoginRegisterPage;
+  loginPage = LoginPage;
   logoutTab = LogoutPage;
 
   isLoggedIn: boolean;

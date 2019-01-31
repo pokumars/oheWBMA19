@@ -3,9 +3,9 @@ import { NavController } from 'ionic-angular';
 import { Pic } from '../../interfaces/pic';
 import { HttpClient } from '@angular/common/http';
 import { MediaProvider } from '../../providers/media/media';
+import { Observable } from 'rxjs/Observable';
 
 // import { PhotoViewer } from '@ionic-native/photo-viewer';
-
 
 
 @Component({
@@ -15,7 +15,7 @@ import { MediaProvider } from '../../providers/media/media';
 export class HomePage {
 
   // add this to xyz
-  picArray: Pic[] = [];
+  picArray: Observable<Pic[]>;
   mediaPath = 'http://media.mw.metropolia.fi/wbma/uploads/';
 
   ngOnInit() {
@@ -26,22 +26,15 @@ export class HomePage {
   constructor(private http: HttpClient, public navCtrl: NavController, private mediaProvider: MediaProvider) { }
 
   getAllFiles() {
-    this.mediaProvider.getAllmedia().subscribe((data: Pic[]) => {
-      console.log('data', data);
-      data.forEach((media: Pic) => {
-        this.mediaProvider.getSingleMedia(media.file_id).subscribe((file: Pic) => {
-          this.picArray.push(file);
-        });
-      });
-      console.log(this.picArray);
-    });
+    this.picArray = this.mediaProvider.getAllmedia();
+    console.log('getAllFiles()');
   }
 
-  getImages() {
+  /* getImages() {
     this.http.get<Pic[]>(this.mediaPath).subscribe(
       (response: Pic[]) => {
         this.picArray = response;
       }
     );
-  }
+  } */
 }

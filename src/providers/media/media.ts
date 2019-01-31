@@ -21,6 +21,7 @@ export class MediaProvider {
 
 
   getAllmedia() {
+    console.log('getAllMedia()');
     return this.http.get<Pic[]>('http://media.mw.metropolia.fi/wbma/media/');
   }
 

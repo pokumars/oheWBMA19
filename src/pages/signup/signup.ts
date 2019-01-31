@@ -23,7 +23,7 @@ export class SignupPage {
   }
 
   onCheckUsername(username) {
-   if(username !== '') {
+   if (username !== '') {
     console.log('check username ', username);
     this.authProvider.checkUserExists(username).subscribe(
       response => {
