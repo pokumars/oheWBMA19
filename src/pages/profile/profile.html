@@ -12,5 +12,13 @@
 
 
 <ion-content padding>
+  <ion-avatar>
+    <!--This works. When avatar is the filename-->
+    <!--<img [src]="'http://media.mw.metropolia.fi/wbma/uploads/' + avatar">-->
+    <img [src]="'http://media.mw.metropolia.fi/wbma/uploads/' + (avatar | thumbnail:'small') ">
+  </ion-avatar>
+
+  <p>{{ userMail }}</p>
+  <p>{{ username }}</p>
 
 </ion-content>

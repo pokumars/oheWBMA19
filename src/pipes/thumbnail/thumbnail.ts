@@ -13,30 +13,32 @@ export class ThumbnailPipe implements PipeTransform {
 
   transform(value: string, sizeOption: string) {
     let thumbnail;
-    const fileID = value.split('.')[0];
-
+    const filename = value.split('.')[0];
+    console.log(filename);
 
     switch (sizeOption) {
       case 'small':
-        thumbnail = this.baseUrl + fileID + '-tn160.' + 'png';
+        thumbnail = filename + '-tn160.' + 'png';
+        // console.log('filename   ', filename);
         break;
 
       case 'medium':
-        thumbnail = this.baseUrl + fileID + '-tn320.' + 'png';
+        thumbnail = filename + '-tn320.' + 'png';
         break;
 
       case 'large':
-        thumbnail = this.baseUrl + fileID + '-tn640.' + 'png';
+        thumbnail = filename + '-tn640.' + 'png';
         break;
 
       case 'screenshot':
-        thumbnail = this.baseUrl + value;
+        thumbnail = value;
         break;
 
       default:
-        thumbnail = this.baseUrl + fileID + '-tn160.' + 'png';
+        thumbnail = filename + '-tn160.' + 'png';
         break;
     }
+    // console.log('thumb =      ', thumbnail);
     return thumbnail;
   }
 }

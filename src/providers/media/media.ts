@@ -25,4 +25,9 @@ export class MediaProvider {
     return this.http.get<Pic[]>('http://media.mw.metropolia.fi/wbma/media/');
   }
 
+  getAvatar(tag) {
+    console.log('getAvatar()');
+    return this.http.get<Pic[]>('https://media.mw.metropolia.fi/wbma/tags/' + tag);
+  }
+
 }

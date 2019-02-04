@@ -33,15 +33,16 @@ export class LoginPage {
       console.log(response);
       localStorage.setItem('token', response.token);
       localStorage.setItem('userId', response.user.user_id.toString());
+      localStorage.setItem('email', response.user.email);
+      localStorage.setItem('username', response.user.username);
+
 
       // sets tabs page as root and also moves there
       this.navCtrl.setRoot(TabsPage);
-
     },
     (error) => {
       console.log(error);
     });
-
   }
 
 }

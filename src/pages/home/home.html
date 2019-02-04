@@ -11,10 +11,8 @@
   <ion-list>
     <ion-item *ngFor="let image of picArray | async">
       <ion-thumbnail item-start>
-          <img  [src]="(image.filename | thumbnail: 'small') ">
-        <!--<img *ngIf="image.media_type =='image'" [src]="'http://media.mw.metropolia.fi/wbma/uploads/'+ image.thumbnails.w160">
-        <video *ngIf="image.media_type == 'video'" [src]="'http://media.mw.metropolia.fi/wbma/uploads/'+image.filename"
-         controls></video>-->
+          <img *ngIf="image.media_type =='image'" [src]="mediaPath +(image.filename | thumbnail: 'small') ">
+          <video *ngIf="image.media_type == 'video'" [src]="mediaPath + (image.filename | thumbnail: 'small')" controls></video>
       </ion-thumbnail>
       <h2>{{ image.title}}</h2>
       <p>{{ image.description }}</p>
