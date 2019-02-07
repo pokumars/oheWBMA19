@@ -1,0 +1,35 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Upload</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form #uploadForm="ngForm" (ngSubmit)="upload(uploadForm)" name="uploadForm">
+      <ion-list>
+          <ion-item>
+            <ion-label floating >Title</ion-label>
+            <ion-input type="text" name="title" id="title" ngModel></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label floating >Description</ion-label>
+              <ion-input type="text" name="description" id="description" ngModel></ion-input>
+            </ion-item>
+          <ion-item>
+            <ion-label >Choose File</ion-label>
+            <ion-input type="file"  accept="image/*" (change)="handleChange($event)"
+             name="file" id="file" ngModel></ion-input>
+          </ion-item>
+
+        </ion-list>
+
+        <div padding>
+          <button ion-button color="primary" block>Upload</button>
+        </div>
+
+  </form>
+
+</ion-content>

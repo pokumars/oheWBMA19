@@ -19,7 +19,9 @@ export class SignupPage {
 
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private authProvider: AuthProvider) {
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              private authProvider: AuthProvider) {
   }
 
 

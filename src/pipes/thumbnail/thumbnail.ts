@@ -14,7 +14,7 @@ export class ThumbnailPipe implements PipeTransform {
   transform(value: string, sizeOption: string) {
     let thumbnail;
     const filename = value.split('.')[0];
-    console.log(filename);
+    // console.log(filename);
 
     switch (sizeOption) {
       case 'small':

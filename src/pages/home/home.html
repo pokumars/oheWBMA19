@@ -1,8 +1,11 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+    <ion-title>Home</ion-title>
+    <ion-buttons end>
+      <button ion-button large [navPush]="uploadPage">
+          <ion-icon large name="cloud-upload"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 

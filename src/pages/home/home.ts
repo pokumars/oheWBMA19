@@ -4,6 +4,7 @@ import { Pic } from '../../interfaces/pic';
 import { HttpClient } from '@angular/common/http';
 import { MediaProvider } from '../../providers/media/media';
 import { Observable } from 'rxjs/Observable';
+import { UploadPage } from '../upload/upload';
 
 // import { PhotoViewer } from '@ionic-native/photo-viewer';
 
@@ -13,6 +14,7 @@ import { Observable } from 'rxjs/Observable';
   templateUrl: 'home.html',
 })
 export class HomePage {
+  uploadPage = UploadPage;
 
   // add this to xyz
   picArray: Observable<Pic[]>;
@@ -24,6 +26,7 @@ export class HomePage {
   }
 
   constructor(private http: HttpClient, public navCtrl: NavController, private mediaProvider: MediaProvider) { }
+
 
   getAllFiles() {
     this.picArray = this.mediaProvider.getAllmedia();

@@ -17,6 +17,7 @@ import { SignupPage } from '../pages/signup/signup';
 import { ProfilePage } from '../pages/profile/profile';
 import { TabsPage } from '../pages/tabs/tabs';
 import { PipesModule } from '../pipes/pipes.module';
+import { UploadPage } from '../pages/upload/upload';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { PipesModule } from '../pipes/pipes.module';
     SignupPage,
     ProfilePage,
     TabsPage,
+    UploadPage
 
   ],
   imports: [
@@ -45,7 +47,8 @@ import { PipesModule } from '../pipes/pipes.module';
     LoginPage,
     SignupPage,
     ProfilePage,
-    TabsPage
+    TabsPage,
+    UploadPage
   ],
   providers: [
     StatusBar,

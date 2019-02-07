@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Pic } from '../../interfaces/pic';
 
@@ -10,6 +10,7 @@ import { Pic } from '../../interfaces/pic';
 */
 @Injectable()
 export class MediaProvider {
+  baseUrl = 'http://media.mw.metropolia.fi/wbma';
 
   constructor(public http: HttpClient) {
     console.log('Hello MediaProvider Provider');
@@ -28,6 +29,16 @@ export class MediaProvider {
   getAvatar(tag) {
     console.log('getAvatar()');
     return this.http.get<Pic[]>('https://media.mw.metropolia.fi/wbma/tags/' + tag);
+  }
+
+  upload(formData) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'x-access-token': localStorage.getItem('token')
+      })
+    };
+    console.log('upload()');
+    return this.http.post(this.baseUrl + '/media', formData, httpOptions);
   }
 
 }
