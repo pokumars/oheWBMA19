@@ -13,7 +13,7 @@ export class LogoutPage {
   }
 
   onLogout() {
-    // localStorage.clear()
+    localStorage.clear()
 
 
     this.navCtrl.parent.select(0);

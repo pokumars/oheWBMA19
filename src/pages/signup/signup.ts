@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { NgForm } from '@angular/forms';
+import { FormControl, NgForm, Validators } from '@angular/forms';
 import { AuthProvider } from '../../providers/auth/auth';
-import { RegResponse, LoginResponse } from '../../interfaces/loginResponse';
+import { LoginResponse, RegResponse } from '../../interfaces/loginResponse';
 import { LoginPage } from '../login/login';
 import { TabsPage } from '../tabs/tabs';
 
@@ -14,9 +14,14 @@ import { TabsPage } from '../tabs/tabs';
 })
 export class SignupPage {
   availableUsername = true;
+  passW = '';
+  passwordMatch = false;
+
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private authProvider: AuthProvider) {
   }
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SignupPage');
@@ -35,15 +40,20 @@ export class SignupPage {
   }
 
   onSignup(form: NgForm) {
-    this.authProvider.register(form.value.username, form.value.password, form.value.email).subscribe(
-      (response: RegResponse) => {
-        console.log(response);
-        localStorage.setItem('user_id', response.user_id.toString());
+    // I have made the button disabled until the form is valid.
+    // But i will also have it be that it wont be submittable if passwords dont match
 
-        // registered so now login and save the token
-        this.successfulSignupLogin(form.value.username, form.value.password);
+    if (this.passwordMatch) {
+      this.authProvider.register(form.value.username, form.value.password, form.value.email).subscribe(
+        (response: RegResponse) => {
+          console.log(response);
+          localStorage.setItem('user_id', response.user_id.toString());
 
-      }, error => console.log(error));
+          // registered so now login and save the token
+          this.successfulSignupLogin(form.value.username, form.value.password);
+
+        }, error => console.log(error));
+    } else {console.log('passwords dont match'); }
   }
 
   successfulSignupLogin(username, password) {
@@ -55,6 +65,18 @@ export class SignupPage {
       this.navCtrl.setRoot(TabsPage);
     });
 
+  }
+
+  confirmPassword(confPass) {
+    if (this.passW !== '') {
+      if (this.passW === confPass) {
+        // console.log('passwords match');
+        this.passwordMatch = true;
+      } else {
+        // console.log('passwords DO NOT match');
+        this.passwordMatch = false;
+      }
+    }
   }
 
 }

@@ -14,21 +14,31 @@
 
           <ion-item>
             <ion-label floating>Username</ion-label>
-            <ion-input #username="ngModel" ngModel type="text" name="username" (keyup)="onCheckUsername(regForm.value.username)"></ion-input>
+            <ion-input #username="ngModel" ngModel type="text" name="username" (keyup)="onCheckUsername(regForm.value.username)" required></ion-input>
           </ion-item>
           <div *ngIf="!availableUsername && username.dirty" class="alert">username already in use</div>
 
           <ion-item>
             <ion-label floating>Password</ion-label>
-            <ion-input ngModel type="password" name="password"></ion-input>
+            <ion-input ngModel #passwordx="ngModel" [(ngModel)]="passW" type="password" name="password" required></ion-input>
           </ion-item>
 
           <ion-item>
+              <ion-label floating>Confirm Password</ion-label>
+              <ion-input ngModel #confirmPasswordx="ngModel" type="password" required
+               (keyup)="confirmPassword(regForm.value.confirmPassword)" name="confirmPassword"></ion-input>
+            </ion-item>
+             <div *ngIf="passwordMatch && passwordx.dirty  && confirmPasswordx.dirty" class="proceed">passwords match</div>
+             <div *ngIf="!passwordMatch && passwordx.dirty && confirmPasswordx.dirty" class="alert">passwords dont match</div>
+
+          <ion-item>
             <ion-label floating>Email</ion-label>
-            <ion-input ngModel type="email" name="email"></ion-input>
+            <ion-input ngModel type="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" #email="ngModel" name="email"></ion-input>
           </ion-item>
+          <span *ngIf="email.errors?.required && email.touched" class="alert">email required</span>
+          <span *ngIf="email.errors?.pattern && email.touched" class="alert">email invalid</span>
 
         </ion-list>
-        <button ion-button block round type="submit">Create Account</button>
+        <button ion-button block round [disabled]="regForm.invalid" type="submit">Create Account</button>
     </form>
   </ion-content>
