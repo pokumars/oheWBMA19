@@ -24,6 +24,10 @@ export class HomePage {
     this.getAllFiles();
 
   }
+  ionViewDidEnter() {
+    this.getAllFiles();
+  }
+
 
   constructor(private http: HttpClient, public navCtrl: NavController, private mediaProvider: MediaProvider) { }
 

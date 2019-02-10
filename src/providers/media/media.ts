@@ -37,8 +37,9 @@ export class MediaProvider {
         'x-access-token': localStorage.getItem('token')
       })
     };
-    console.log('upload()');
+    console.log(formData);
     return this.http.post(this.baseUrl + '/media', formData, httpOptions);
+
   }
 
 }
