@@ -30,12 +30,41 @@
           <button ion-button color="primary" block>Upload</button>
         </div>
   </form>
-
-  <ion-item>
-    <img [src]="fileData"  alt="">
+  <ion-item >
+    <img [src]="fileData" alt="" *ngIf="fileType === 'image'"
+      [ngStyle]="{'filter': 'grayscale(' + grayscale + '%) brightness(' + brightness + '%)contrast(' + contrast + '%) saturate(' + saturate + '%)'}" >
     <img *ngIf="fileType === 'audio'" src="../../assets/imgs/audio.png"  alt="">
     <img *ngIf="fileType === 'video'" src="../../assets/imgs/video.png" alt="">
   </ion-item>
+
+  <ion-list *ngIf="fileType === 'image'">
+    <ion-item>
+      <ion-label  floating >Grayscale</ion-label>
+      <ion-range [(ngModel)]="grayscale" min="0" max="100" color="primary" pin="true">
+      </ion-range>
+    </ion-item>
+      <ion-item>
+        <ion-label  floating >Brightness</ion-label>
+        <ion-range [(ngModel)]="brightness" min="0" max="500" color="primary" pin="true">
+          <ion-icon range-left small slot="start" name="sunny"></ion-icon>
+          <ion-icon  range-right slot="end" name="sunny"></ion-icon>
+        </ion-range>
+      </ion-item>
+      <ion-item>
+        <ion-label  floating >Contrast</ion-label>
+        <ion-range [(ngModel)]="contrast" min="0" max="500" color="primary" pin="true">
+          <ion-icon range-left small slot="start" name="sunny"></ion-icon>
+          <ion-icon  range-right slot="end" name="sunny"></ion-icon>
+        </ion-range>
+      </ion-item>
+      <ion-item>
+        <ion-label  floating >Saturation</ion-label>
+        <ion-range [(ngModel)]="saturate" min="0" max="500" color="primary" pin="true">
+          <ion-icon range-left small slot="start" name="sunny"></ion-icon>
+          <ion-icon  range-right slot="end" name="sunny"></ion-icon>
+        </ion-range>
+      </ion-item>
+      </ion-list>
 
 
 

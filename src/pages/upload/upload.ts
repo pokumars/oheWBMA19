@@ -14,6 +14,10 @@ export class UploadPage {
   file: File;
   fileType;
   fileData: any;
+  grayscale = 0;
+  brightness = 100;
+  contrast = 100;
+  saturate = 100;
 
 
   constructor(public navCtrl: NavController,
@@ -80,6 +84,10 @@ export class UploadPage {
     this.file = event.target.files[0];
 
     this.showPreview();
+  }
+
+  logChange(evt) {
+    console.log(this.grayscale);
   }
 
 }
