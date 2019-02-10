@@ -12,6 +12,7 @@ import { HomePage } from '../home/home';
 })
 export class UploadPage {
   file: File;
+  fileType;
   fileData: any;
 
 
@@ -66,7 +67,6 @@ export class UploadPage {
 
     reader.onloadend = (evt) => {
         this.fileData = reader.result;
-
     };
     reader.readAsDataURL(this.file);
 }
@@ -75,7 +75,8 @@ export class UploadPage {
 
 
   handleChange(event) {
-    // console.log(event.target.files[0]);
+    // console.log(event.target.files[0].type.substring(0, 5));
+    this.fileType = event.target.files[0].type.substring(0, 5);
     this.file = event.target.files[0];
 
     this.showPreview();

@@ -20,7 +20,7 @@
             </ion-item>
           <ion-item>
             <ion-label >Choose File</ion-label>
-            <ion-input type="file"  accept="image/*" (change)="handleChange($event)"
+            <ion-input type="file"  accept="audio/*|video/*|image/*" (change)="handleChange($event)"
              name="file" id="file" ngModel></ion-input>
           </ion-item>
 
@@ -33,6 +33,8 @@
 
   <ion-item>
     <img [src]="fileData"  alt="">
+    <img *ngIf="fileType === 'audio'" src="../../assets/imgs/audio.png"  alt="">
+    <img *ngIf="fileType === 'video'" src="../../assets/imgs/video.png" alt="">
   </ion-item>
 
 
