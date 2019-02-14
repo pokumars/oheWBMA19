@@ -1,11 +1,15 @@
 <ion-header>
   <ion-navbar>
     <ion-title>Home</ion-title>
+
+
     <ion-buttons end>
       <button ion-button large [navPush]="uploadPage">
           <ion-icon large name="cloud-upload"></ion-icon>
       </button>
     </ion-buttons>
+
+
   </ion-navbar>
 </ion-header>
 
@@ -15,7 +19,9 @@
     <ion-item *ngFor="let image of picArray | async">
       <ion-thumbnail item-start>
           <img *ngIf="image.media_type =='image'" [src]="mediaPath +(image.filename | thumbnail: 'small') ">
-          <video *ngIf="image.media_type == 'video'" [src]="mediaPath + (image.filename | thumbnail: 'small')" controls></video>
+          <video *ngIf="image.media_type == 'video'" [src]="mediaPath + (image.filename | thumbnail: 'screenshot')" controls></video>
+          <img *ngIf="image.media_type =='audio'" src="../../assets/imgs/audio.png" >
+          <!-- <audio src=""></audio> -->
       </ion-thumbnail>
       <h2>{{ image.title}}</h2>
       <p>{{ image.description }}</p>

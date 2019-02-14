@@ -12,22 +12,22 @@
       <ion-list>
           <ion-item>
             <ion-label floating >Title</ion-label>
-            <ion-input type="text" name="title" id="title" ngModel></ion-input>
+            <ion-input type="text" name="title" id="title" [(ngModel)]="title" required minlength="4" ngModel #titleCtrl="ngModel" ></ion-input>
           </ion-item>
+          <span class="alert" *ngIf="titleCtrl.invalid && titleCtrl.touched" >Please enter a title</span>
           <ion-item>
               <ion-label floating >Description</ion-label>
-              <ion-input type="text" name="description" id="description" ngModel></ion-input>
+              <ion-input type="text" [(ngModel)]="description" name="description" id="description" ngModel></ion-input>
             </ion-item>
           <ion-item>
-            <ion-label >Choose File</ion-label>
-            <ion-input type="file"  accept="audio/*|video/*|image/*" (change)="handleChange($event)"
-             name="file" id="file" ngModel></ion-input>
+            <button  (click)="showPreview2()" type="button" ion-button color="danger" >Choose File</button>
+            <button  (click)="resetForm()" type="button" ion-button color="danger">Reset Form</button>
+            <button  (click)="takePicture()" type="button" ion-button color="primary">Camera</button>
           </ion-item>
-
         </ion-list>
 
         <div padding>
-          <button ion-button color="primary" block>Upload</button>
+          <button ion-button color="primary" type="submit" [disabled]="fileNotReady || uploadForm.invalid" block>Upload</button>
         </div>
   </form>
   <ion-item >
@@ -35,6 +35,7 @@
       [ngStyle]="{'filter': 'grayscale(' + grayscale + '%) brightness(' + brightness + '%)contrast(' + contrast + '%) saturate(' + saturate + '%)'}" >
     <img *ngIf="fileType === 'audio'" src="../../assets/imgs/audio.png"  alt="">
     <img *ngIf="fileType === 'video'" src="../../assets/imgs/video.png" alt="">
+    <img *ngIf="fileType === 'camera'" [src]="base64Image" alt="camFail">
   </ion-item>
 
   <ion-list *ngIf="fileType === 'image'">

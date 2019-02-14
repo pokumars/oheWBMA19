@@ -1,3 +1,11 @@
 page-upload {
 
 }
+input.ng-invalid.ng-touched{
+  border: 1px solid red;
+}
+.alert {
+  font-weight: 600;
+  color: red;
+  margin-left: 16px;
+ }

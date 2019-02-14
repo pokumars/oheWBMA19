@@ -18,6 +18,10 @@ import { ProfilePage } from '../pages/profile/profile';
 import { TabsPage } from '../pages/tabs/tabs';
 import { PipesModule } from '../pipes/pipes.module';
 import { UploadPage } from '../pages/upload/upload';
+import { Chooser } from '@ionic-native/chooser';
+import { Camera } from '@ionic-native/camera';
+
+
 
 @NgModule({
   declarations: [
@@ -57,6 +61,8 @@ import { UploadPage } from '../pages/upload/upload';
     PhotoViewer,
     MediaProvider,
     AuthProvider,
+    Chooser,
+    Camera
   ],
 })
 export class AppModule {
