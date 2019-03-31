@@ -1,7 +1,3 @@
-# oheWBMA19
-
-
-
 <h2>Ionic, Angular, JS Assignments</h2>
 <p>16 March 2019</p>
 <p> each brancch represents a task, master holds the whole set</p>
