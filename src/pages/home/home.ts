@@ -16,7 +16,6 @@ import { UploadPage } from '../upload/upload';
 export class HomePage {
   uploadPage = UploadPage;
 
-  // add this to xyz
   picArray: Observable<Pic[]>;
   mediaPath = 'http://media.mw.metropolia.fi/wbma/uploads/';
 
@@ -29,7 +28,9 @@ export class HomePage {
   }
 
 
-  constructor(private http: HttpClient, public navCtrl: NavController, private mediaProvider: MediaProvider) { }
+  constructor(private http: HttpClient,
+              public navCtrl: NavController,
+              private mediaProvider: MediaProvider) { }
 
 
   getAllFiles() {

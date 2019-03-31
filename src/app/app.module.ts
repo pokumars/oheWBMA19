@@ -20,6 +20,7 @@ import { PipesModule } from '../pipes/pipes.module';
 import { UploadPage } from '../pages/upload/upload';
 import { Chooser } from '@ionic-native/chooser';
 import { Camera } from '@ionic-native/camera';
+import { ThumbnailPipe } from '../pipes/thumbnail/thumbnail';
 
 
 
@@ -33,14 +34,15 @@ import { Camera } from '@ionic-native/camera';
     SignupPage,
     ProfilePage,
     TabsPage,
-    UploadPage
+    UploadPage,
+    ThumbnailPipe,
 
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpClientModule,
-    PipesModule,
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [

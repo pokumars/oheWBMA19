@@ -10,6 +10,7 @@ export class AuthProvider {
     console.log('Hello AuthProvider Provider');
   }
 
+  // object that goes with login attempt
   login(username: string, password: string) {
     const body = {
       'username': username,

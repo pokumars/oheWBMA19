@@ -9,7 +9,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'thumbnail',
 })
 export class ThumbnailPipe implements PipeTransform {
-  baseUrl = 'http://media.mw.metropolia.fi/wbma/uploads/';
+  // baseUrl = 'http://media.mw.metropolia.fi/wbma/uploads/';
 
   transform(value: string, sizeOption: string) {
     let thumbnail;
